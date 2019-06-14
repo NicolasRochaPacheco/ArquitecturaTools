@@ -18,10 +18,19 @@ Posteriormente se clona el [repositorio](https://github.com/riscv/riscv-gnu-tool
   git checkout 411d134
   git submodule update --init --recursive
 ```
- Una vez se haya completado la descarga del repositorio (la cual puede tomar unos minutos), se procede a instalar las herramientas de RISC-V en el computador. Dado que en el curso usaremos un sistema que corre las especificaciones RV32I de RISC-V, debemos instalar las herramientas destinadas a ese sistema. 
+Una vez se haya completado la descarga del repositorio (la cual puede tomar unos minutos), se procede a instalar las herramientas de RISC-V en el computador. Dado que en el curso usaremos un sistema que corre las especificaciones RV32I de RISC-V, debemos instalar las herramientas destinadas a ese sistema. 
  
 ```
   mkdir build; cd build
   ../configure --with-arch=rv32i --prefix=/opt/riscv32i
   make -j$(nproc)
 ```
+Finalmente, para poder hacer uso de las herramientas de RISC-V es necesario agregar los binarios a la variable de entorno PATH del sistema operativo. De esta manera, se podrá ejecutar cualquier binario sin necesidad de acceder a la carpeta. Para agregar la carpeta a la variable de entorno, se debe ejecutar:
+
+```
+ export PATH=$PATH:/opt/riscv32i/bin
+```
+
+## Referencias
+
+* **PicoRV32:** Es un núcleo que utiliza la especificación RV32I[M][C] de RISC-V. Fue desarrollado por Clifford Wolf y es utilizado debido a su compatibilidad con las tarjetas TinyFPGA. Las instrucciones de instalación de las herramientas de RISC-V se basó en parte de este proyecto. El respositorio con todos los archivos fuente se puede encontrar [aquí](https://github.com/cliffordwolf/picorv32.git).

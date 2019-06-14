@@ -21,7 +21,8 @@ Posteriormente se clona el [repositorio](https://github.com/riscv/riscv-gnu-tool
 Una vez se haya completado la descarga del repositorio (la cual puede tomar unos minutos), se procede a instalar las herramientas de RISC-V en el computador. Dado que en el curso usaremos un sistema que corre las especificaciones RV32I de RISC-V, debemos instalar las herramientas destinadas a ese sistema. 
  
 ```
-  mkdir build; cd build
+  mkdir build
+  cd build
   ../configure --with-arch=rv32i --prefix=/opt/riscv32i
   make -j$(nproc)
 ```
